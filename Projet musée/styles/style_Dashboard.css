@@ -1,0 +1,618 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --bg-color: #1f242d;
+    --second-bg-color: #323946;
+    --text-color: #fff;
+    --main-color: #0ef;
+}
+
+body{
+    min-height: 100vh;
+    background: var(--bg-color);
+}
+
+.navigation {
+    position: fixed;
+    left: 0;
+    width: 100px;
+    height: 100%;
+    background: var(--bg-color);
+    box-shadow: 25px 25px 75px rgba(0,0,0,0.75),
+    10px 10px 70px rgba(0,0,0,0.25),
+    inset 5px 5px 10px rgba(0,0,0,0.5),
+    inset 5px 5px 20px rgba(255,255,255,0.2),
+    inset -5px -5px 15px rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.navigation li{
+    position: relative;
+    list-style: none;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    margin: 0 5px;
+}
+
+.navigation li::before{
+    content: '';
+    position: absolute;
+    top: calc(50% - 2.5px);
+    left: 20px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.navigation li.active::before{
+    background: #0f0;
+    box-shadow: 0 0 5px #0f0,
+    0 0 10px #0f0,
+    0 0 20px #0f0,
+    0 0 30px #0f0,
+    0 0 40px #0f0,
+    0 0 50px #0f0;
+}
+
+.navigation li a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.navigation li a .icon{
+    position: absolute;
+    font-size: 1.75rem;
+    width: 80px;
+    height: 80px;
+    color: #aaaaaa;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    transition-delay: 0.2s;
+}
+
+.navigation li.active a .icon{
+    color: var(--main-color);
+}
+
+.navigation li.active a .icon{
+    transform: translateX(45px);
+    background: var(--main-color);
+    color: #fff;
+    box-shadow: 5px 5px 7px rgba(0,0,0,0.25),
+    inset 2px 2px 3px rgba(255,255,255,0.25),
+    inset -3px -3px 5px rgba(0,0,0,0.5);
+    transition-delay: 0s;
+}
+
+.navigation li a .icon::before{
+    content: '';
+    position: absolute;
+    inset: 10px;
+    background: #2f363e;
+    border-radius: 50%;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5),
+    inset 2px 2px 3px rgba(255,255,255,0.25),
+    inset -3px -3px 5px rgba(0,0,0,0.5);
+    transform: scale(0);
+    transition: 0.5s;
+}
+
+.navigation li.active a .icon::before{
+    transform: scale(1);
+}
+
+
+.navigation li a .text {
+    position: absolute;
+    left: 80px;
+    font-size: 1.25em;
+    background: var(--main-color);
+    color: #2f363e;
+    padding: 4px 15px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 7px rgba(0,0,0,0.25),
+    inset -3px -3px 5px rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+
+.navigation li a .text::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -4px;
+    transform: translateY(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: var(--main-color);
+}
+
+.navigation li:hover a .text{
+    left: 100px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.navigation li.active:hover a .text{
+    left: 140px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/*=====================================*\
+/*============[FORMULAIRES]============*/
+/*=====================================*/
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: calc(100% - 120px);
+    margin-left: 120px;
+    gap: 40px;
+}
+
+.entree {
+    width: 450px;
+    height: 500px;
+    background: #222;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.entree .content, .content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.entree .content h2, .content h2 {
+    font-size: 2em;
+    color: var(--main-color);
+    text-transform: uppercase;
+}
+
+.entree .content form, .content form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.entree .content form .inputBx, .content form .inputBx {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.entree .content form .inputBx label, .content form .inputBx label {
+    color: #fff;
+    font-weight: 500;
+}
+
+.entree .content form .inputBx input, .content form .inputBx input,
+.entree .content form .inputBx select, .content form .inputBx select {
+    position: relative;
+    width: 100%;
+    background: #333;
+    border: none;
+    outline: none;
+    padding: 15px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.entree .content form .inputBx select {
+    appearance: none;
+}
+
+.entree .content form .inputBx select:focus,
+.entree .content form .inputBx input:focus {
+    border: 2px solid var(--main-color);
+}
+
+.entree .content form .inputBx i, .signin .content form .inputBx i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-style: normal;
+    color: #aaa;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.entree .content form .inputBx input:focus ~ i,
+.entree .content form .inputBx input:valid ~ i {
+    transform: translateY(-30px);
+    font-size: 0.8rem;
+    color: #ffffff;
+}
+
+.entree .content form .links {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.entree .content form .links a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.entree .content form .links a:hover {
+    color: #0ef;
+}
+
+.entree .content form .inputBx input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background: var(--main-color);
+    color: #111;
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: 0.3s ease-in-out;
+}
+
+.entree .content form .inputBx input[type="submit"]:hover {
+    background: var(--main-color);
+}
+/*==========================*\
+  [ RECHERCHE + STATISTIQUES ]
+\*==========================*/
+
+.recherche {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.recherche-box-horizontal {
+    background: var(--second-bg-color);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.4);
+    width: fit-content;
+}
+
+.recherche .recherche-group form label {
+    font-size: 2rem;
+    color: var(--text-color);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-right: 10px;
+}
+
+.recherche-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.recherche-group input[type="text"] {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: #333;
+    color: white;
+    width: 200px;
+}
+
+.recherche-group .recherche-submit {
+    background-color: var(--main-color);
+    color: #111;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.recherche-group .recherche-submit:hover {
+    background-color: #00cfcf;
+}
+
+.recherche-group .button {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    cursor: pointer;
+    background-color: #007BFF;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.recherche-group .button.true {
+    background-color: #28a745;
+}
+
+.recherche-group .button.null {
+    background-color: #dc3545;
+}
+
+.recherche-group .button:hover {
+    transform: scale(1.05);
+}
+
+.search-field {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: #333;
+    color: white;
+    cursor: pointer;
+    appearance: none;
+}
+
+.portfolio-layer button[type="submit"] {
+    margin-top: 10px;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #dc3545;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.portfolio-layer button[type="submit"]:hover {
+    background-color: #ff4d4d;
+    transform: scale(1.05);
+}
+
+/*=================*\
+  [ STATS VISUELLES ]
+\*=================*/
+.stats {
+    margin-left: 20px;
+    margin-bottom: 2rem;
+}
+
+.stats h2 {
+    color: var(--main-color);
+    text-align: center;
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 120px;
+}
+
+.submit-button {
+    margin-left: 10px;
+    margin-bottom: 25px;
+    display: block;
+    padding: 0.5rem 1rem;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.1rem;
+    margin-left: 120px;
+}
+
+.input-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.inputBx {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputBx input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.inputBx i {
+    font-style: normal;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.3rem;
+}
+
+.graphique-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.chart-wrapper {
+    flex: 1;
+    max-width: calc(50% - 20px);
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 120px;
+    gap: 2rem;
+}
+
+.stats-box {
+    flex: 1 1 250px;
+    background: var(--second-bg-color);
+    padding: 3rem 2rem 4rem;
+    border-radius: 2rem;
+    text-align: center;
+    border: 0.2rem solid var(--bg-color);
+    transition: 0.5s ease;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.5);
+}
+
+.stats-box:hover {
+    border-color: var(--main-color);
+    transform: scale(1.02);
+}
+
+.stats-box i {
+    font-size: 5rem;
+    color: var(--main-color);
+    margin-bottom: 1rem;
+}
+
+.stats-box h3 {
+    color: var(--text-color);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.stats-box p {
+    font-size: 1.4rem;
+    color: #ccc;
+}
+
+
+/*=====================================*\
+/*============[VISITEURS]============*/
+/*=====================================*/
+
+.visiteurs {
+    margin-left: 120px;
+    width: calc(100% - 120px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.visiteurs h2 {
+    color: var(--main-color);
+    margin-bottom: 50px;
+    text-align: center;
+    line-height: 1.2;
+    font-size: 5rem;
+}
+
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.portfolio-box {
+    position: relative;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem var(--bg-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.portfolio-box h4 {
+    margin: 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--main-color); /* Text color */
+    font-size: 1.7rem;
+    width: 100%;
+    text-align: center;
+}
+
+.portfolio-box img {
+    width: 100%;
+    transition: 0.5s ease;
+}
+
+.portfolio-box:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-box .portfolio-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), var(--main-color));
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 4rem;
+    transform: translateY(100%);
+    transition: 0.5s ease;
+}
+
+.portfolio-box:hover .portfolio-layer {
+    transform: translateY(0);
+}
+
+.portfolio-layer p{
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
